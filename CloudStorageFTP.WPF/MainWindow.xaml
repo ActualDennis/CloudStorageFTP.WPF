@@ -1,0 +1,77 @@
+﻿<Window x:Class="CloudStorageFTP.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CloudStorageFTP.WPF"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local1="clr-namespace:CloudStorageFTP.WPF.UI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="330.99" Width="597.64">
+    <Window.Resources>
+
+        <local1:LogTemplateSelector x:Key="LogTemplateSelector"/>
+
+        <DataTemplate x:Key="LogStatusDataTemplate">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:PackIcon Kind="About" Foreground="DarkBlue" />
+
+                <TextBlock Grid.Column="1" Text="{Binding LogMessage}"/>
+            </Grid>
+
+
+        </DataTemplate>
+
+        <DataTemplate x:Key="LogCommandDataTemplate">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:PackIcon Kind="AnnouncementOutline" Foreground="YellowGreen" />
+
+                <TextBlock Grid.Column="1" Text="{Binding LogMessage}"/>
+            </Grid>
+
+
+        </DataTemplate>
+
+        <DataTemplate x:Key="LogErrorDataTemplate">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="5*"/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:PackIcon Kind="CloseBox" Foreground="Red" />
+
+                <TextBlock Grid.Column="1" Text="{Binding LogMessage}"/>
+            </Grid>
+
+
+        </DataTemplate>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ItemsControl>
+            <ScrollViewer>
+                <ItemsControl ItemsSource="{Binding Logs}"
+                              ItemTemplateSelector="{StaticResource LogTemplateSelector}"/>
+            </ScrollViewer>
+        </ItemsControl>
+    </Grid>
+</Window>
