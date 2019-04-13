@@ -10,6 +10,11 @@ namespace CloudStorageFTP.WPF.Loggers
 {
     public class InterfaceLogger : ILogger
     {
-        public void Log(string message, RecordKind kindOfRecord) => throw new NotImplementedException();
+
+        public event EventHandler<LogEntry> OnLog;
+        public void Log(string message, RecordKind kindOfRecord)
+        {
+            OnLog?.Invoke(null, new LogEntry() { LogMessage = message, RecordKind = kindOfRecord });
+        }
     }
 }

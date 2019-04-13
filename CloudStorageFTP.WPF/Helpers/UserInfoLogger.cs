@@ -31,12 +31,11 @@ namespace CloudStorageFTP.WPF.Helpers
 
             foreach (var user in enumerable)
             {
-                logger.Log($"User's endpoint: {((IPEndPoint)user.Key).ToString()}", RecordKind.Status);
-                logger.Log(user.Value.IsAuthenticated
+                var auth = user.Value.IsAuthenticated
                     ? $"Authenticated as : {user.Value.UserName}"
-                    : $"Currently not authenticated.", RecordKind.Status);
+                    : $"Currently not authenticated.";
 
-                string value = user.Value.Security switch
+                string security = user.Value.Security switch
                 {
                     ConnectionSecurity.ControlConnectionSecured => "Securing only command channel.",
                     ConnectionSecurity.DataChannelSecured => "Securing only data channel.",
@@ -45,16 +44,18 @@ namespace CloudStorageFTP.WPF.Helpers
                     _ => "Non-secured."
                 };
 
-                logger.Log($"User's security: {value}", RecordKind.Status);
+                security = $"User's security: {security}";
+
+
+                logger.Log($"User's endpoint: {((IPEndPoint)user.Key).ToString()} {Environment.NewLine} {auth} {Environment.NewLine} {security}", RecordKind.Status);
 
                 if (user.Value.IsAuthenticated)
                 {
-
                     var storageInfo = DiContainer.Provider.Resolve<DatabaseHelper>().GetStorageInformation(user.Value.UserName);
 
-                    logger.Log($"Total storage of user {user.Value.UserName} is {BytesToStringFormatted(storageInfo.BytesTotal)}", RecordKind.Status);
-                    logger.Log($"Occupied: {BytesToStringFormatted(storageInfo.BytesOccupied)}", RecordKind.Status);
-                    logger.Log($"Free: {BytesToStringFormatted(storageInfo.BytesFree)}", RecordKind.Status);
+                    logger.Log($"Total storage of user {user.Value.UserName} is {BytesToStringFormatted(storageInfo.BytesTotal)} {Environment.NewLine}" +
+                    $"Occupied: {BytesToStringFormatted(storageInfo.BytesOccupied)} {Environment.NewLine}" +
+                    $"Free: {BytesToStringFormatted(storageInfo.BytesFree)}", RecordKind.Status);
 
                 }
             }

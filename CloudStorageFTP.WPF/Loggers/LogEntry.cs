@@ -9,7 +9,7 @@ namespace CloudStorageFTP.WPF.Loggers
 {
     public class LogEntry
     {
-        public string Message { get; set; }
+        public string LogMessage { get; set; }
 
         public RecordKind RecordKind { get; set; }
     }
