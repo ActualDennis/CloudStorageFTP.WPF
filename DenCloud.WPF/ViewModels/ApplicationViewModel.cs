@@ -142,19 +142,14 @@ namespace DenCloud.WPF.ViewModels
 
             configBuilder.UseNeccessaryClasses();
 
-            configBuilder.UseFileSystem(null, true);
+            configBuilder.UseFileSystem();
 
-            configBuilder.UseAuthentication(null, true);
+            configBuilder.UseAuthentication();
 
-            configBuilder.UseLogger(typeof(InterfaceLogger), false);
+            configBuilder.UseLogger<InterfaceLogger>();
 
             DiContainer.Construct(configBuilder);
         }
     }
-
-
-
-
-
 
 }
