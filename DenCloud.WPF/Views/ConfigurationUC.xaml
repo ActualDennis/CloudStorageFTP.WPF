@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="DenCloud.WPF.Views.ConfigurationUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DenCloud.WPF.Views"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Foreground="DarkBlue" FontSize="23" HorizontalAlignment="Center" Text="Configuration"/>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Foreground="DarkBlue" Text="Base server directory path" FontSize="18"/>
+                </materialDesign:Card>
+                
+                <TextBox Grid.Column="1" Text="{Binding Config.BaseServerPath}"/>
+            </Grid>
+
+            <Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Foreground="DarkBlue" Text="Port for FTP commands." HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                </materialDesign:Card>
+
+                <TextBox Grid.Column="1" Text="{Binding Config.FtpPort}"/>
+            </Grid>
+
+            <Grid Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                
+                <materialDesign:Card Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Foreground="DarkBlue" Text="Path of text logs / if used" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                </materialDesign:Card>
+                
+               
+                <TextBox Grid.Column="1" Text="{Binding Config.LoggerPath}"/>
+            </Grid>
+
+            <Grid Grid.Row="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Foreground="DarkBlue" Text="Port range maximum(for data connections)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                </materialDesign:Card>
+
+                <TextBox Grid.Column="1" Text="{Binding Config.PortMax}"/>
+            </Grid>
+
+
+            <Grid Grid.Row="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Foreground="DarkBlue" Text="Port range minimum(for data connections)" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                </materialDesign:Card>
+                <TextBox Grid.Column="1" Text="{Binding Config.PortMin}"/>
+            </Grid>
+
+
+            <Grid Grid.Row="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Foreground="DarkBlue" Text="Server's external IP address" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                </materialDesign:Card>
+                
+                <TextBox  Grid.Column="1" Text="{Binding Config.ExternalIp}"/>
+            </Grid>
+            
+            <Grid Grid.Row="7">
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Foreground="DarkBlue" Text="SSL certificate path/if used(must be w/o password)" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                </materialDesign:Card>
+
+                <TextBox Grid.Column="1" Text="{Binding Config.CertificatePath}"/>
+            </Grid>
+
+            <materialDesign:Snackbar Grid.Row="10" VerticalAlignment="Center"
+                                 Background="#3A4047" 
+                                 Foreground="White" 
+                                 FontSize="20" HorizontalAlignment="Center" 
+                                 MessageQueue="{Binding Config.PopupMessageQueue}"/>
+
+            <Grid Grid.Row="9">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1" Command="{Binding Config.SaveConfigCommand}"  Content="Save/update config file"/>
+
+                    <Button Grid.Column="0" Command="{Binding Config.GoBackCommand}" Content="Go back" />
+
+                </Grid>
+
+                <Grid Grid.Column="1">
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button Grid.Column="1" Command="{Binding Config.UpdateFieldsCommand}" Content="Update text fields"/>
+
+                </Grid>
+            </Grid>
+
+        </Grid>
+    </Grid>
+</UserControl>
