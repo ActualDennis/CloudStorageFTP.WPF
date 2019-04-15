@@ -51,7 +51,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CloudStorage.Server, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DenCloud.Core.1.0.7\lib\net462\CloudStorage.Server.dll</HintPath>
+      <HintPath>..\packages\DenCloud.Core.1.0.7.1\lib\net462\CloudStorage.Server.dll</HintPath>
     </Reference>
     <Reference Include="DenInject.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\DenInject.Core.1.0.3.2\lib\net462\DenInject.Core.dll</HintPath>

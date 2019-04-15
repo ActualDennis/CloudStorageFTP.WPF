@@ -25,6 +25,7 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <TextBlock Foreground="DarkBlue" FontSize="23" HorizontalAlignment="Center" Text="Configuration"/>
@@ -123,13 +124,27 @@
                 <TextBox Grid.Column="1" Text="{Binding Config.CertificatePath}"/>
             </Grid>
 
-            <materialDesign:Snackbar Grid.Row="10" VerticalAlignment="Center"
+            <Grid Grid.Row="8">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <materialDesign:Card Background="White" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Foreground="DarkBlue" Text="Ports occupation retries" TextWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18"/>
+                </materialDesign:Card>
+
+                <TextBox Grid.Column="1" Text="{Binding Config.PortsOccupationRetries}"/>
+            </Grid>
+
+            <materialDesign:Snackbar Grid.Row="11" VerticalAlignment="Center"
                                  Background="#3A4047" 
                                  Foreground="White" 
                                  FontSize="20" HorizontalAlignment="Center" 
                                  MessageQueue="{Binding Config.PopupMessageQueue}"/>
 
-            <Grid Grid.Row="9">
+            <Grid Grid.Row="10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>

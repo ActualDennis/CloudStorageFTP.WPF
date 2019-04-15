@@ -43,6 +43,8 @@ namespace DenCloud.WPF.ViewModels
 
         public string CertificatePath { get; set; }
 
+        public string PortsOccupationRetries { get; set; }
+
         /// <summary>
         /// Defines message queue to show to user(On main screen)
         /// </summary>
@@ -62,7 +64,8 @@ namespace DenCloud.WPF.ViewModels
                 LoggerPath ,
                 PortMax,
                 PortMin,
-                ExternalIp
+                ExternalIp,
+                PortsOccupationRetries
                 );
 
             UpdateFields(null);
