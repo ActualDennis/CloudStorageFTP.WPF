@@ -54,7 +54,7 @@
       <HintPath>..\packages\DenCloud.Core.1.0.7.1\lib\net462\CloudStorage.Server.dll</HintPath>
     </Reference>
     <Reference Include="DenInject.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\DenInject.Core.1.0.3.2\lib\net462\DenInject.Core.dll</HintPath>
+      <HintPath>..\packages\DenInject.Core.1.0.4.1\lib\net462\DenInject.Core.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>

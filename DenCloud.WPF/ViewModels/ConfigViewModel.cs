@@ -84,6 +84,7 @@ namespace DenCloud.WPF.ViewModels
                 CertificatePath = config.CertificateLocation;
                 LoggerPath = config.LoggingPath;
                 FtpPort = config.FtpControlPort.ToString();
+                PortsOccupationRetries = config.PassiveConnectionRetryFor.ToString();
             }
             catch
             {
